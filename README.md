@@ -6,7 +6,7 @@ When new exercise tasks and tutorials are submitted, you can get the changes by 
 
 ## Exercise submission guidelines
 
-Please package your solution (javascript files) into a Zip file and upload it via the designated file-upload area in our CSEM ISIS2 course.
+Please package your solution (javascript files) into a Zip file and upload it via the designated file-upload area in our CSEM ISIS2 course at https://isis.tu-berlin.de/course/view.php?id=11388
 
 Instructions and the deadline for each exercise submission are stated in the respective exercise subfolders.
 
