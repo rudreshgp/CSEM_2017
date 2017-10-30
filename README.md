@@ -1,5 +1,9 @@
 # CSEM exercises (2017/18)
 
+You can clone this repository by typing `git clone https://gitlab.tubit.tu-berlin.de/klems/csem-2017.git`
+
+When new exercise tasks and tutorials are submitted, you can get the changes by performing a `git pull` inside your local _csem-2017_ dircectory.
+
 ## Exercise submission guidelines
 
 Please package your solution (javascript files) into a Zip file and upload it via the designated file-upload area in our CSEM ISIS2 course.
