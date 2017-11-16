@@ -6,26 +6,20 @@ Please solve the following challenges on Hackerrank **with JavaScript (Node.js)*
 
 Please copy your solution in the solution template files in this directory.
 
-# Algorithmic Challenges (60%)
+# String challenge (40%)
 
-## String challenge
+Complete the following challenge and paste your solution in _pangram.js_.
 
 https://www.hackerrank.com/challenges/pangrams/problem
 
-## Sorting Challenge
+# Arrays (40%)
 
-https://www.hackerrank.com/challenges/find-the-median/problem
+Complete the following challenge and paste your solution in secondLargest.js_.
 
-## Search Challenge
+https://www.hackerrank.com/challenges/js10-arrays/problem
 
-https://www.hackerrank.com/challenges/gridland-metro/problem
+# Classes (20%)
 
-## Data Structure Challenges (40%)
+Complete the following challenge and paste your solution in _polygon.js_.
 
-## Array Challenge
-
-https://www.hackerrank.com/challenges/sparse-arrays/problem
-
-## Binary Search Tree Challenge
-
-https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem
+https://www.hackerrank.com/challenges/js10-class/problem
