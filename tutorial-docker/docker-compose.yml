@@ -1,7 +1,9 @@
-version: '2'
+version: '3'
 services:
   node-app:
     build: app
+    image: app:1.0
+    container_name: my-app
     ports:
       - "4000:8080"
     volumes:
@@ -13,6 +15,14 @@ services:
       - PG_PORT=5432
       - PG_USER=postgres
       - PG_DATABASE=app
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 100M
 
   db:
     build: db
+    image: db:1.0
+    container_name: my-db
