@@ -1,17 +1,19 @@
 # Docker Tutorial
 
-https://docs.docker.com/get-started
-https://docs.docker.com/get-started/part2/
-https://docs.docker.com/get-started/part3/
+- https://docs.docker.com/get-started
+- https://docs.docker.com/get-started/part2/
+- https://docs.docker.com/get-started/part3/
 
 # Preparations for Upcoming Exercises
 
 ## Development Setup
 
 Install Docker on your laptop (recommended: install the Docker Toolbox which includes useful tools like Docker Compose and Kitematic)
-    - https://docs.docker.com/toolbox/overview/
+
+https://docs.docker.com/toolbox/overview/
 
 Optional but helpful: set up bash aliases
+
     - https://kartar.net/2014/03/useful-docker-bash-functions-and-aliases/
     - https://github.com/tcnksm/docker-alias/blob/master/zshrc
 
