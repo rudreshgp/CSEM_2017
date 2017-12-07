@@ -1,6 +1,6 @@
 # Exercise 4
 
-Submission deadline: 16.12.2017, end of day
+Submission deadline: 13.12.2017, end of day
 
 ## Getting started
 
