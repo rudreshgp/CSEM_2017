@@ -1,5 +1,6 @@
 // A "helper" function that creates
 // some non-deterministic behavior
+'use strict'
 function randomError() {
   if (Math.random() > 0.7) {
     return 'A random error occured';

@@ -1,3 +1,4 @@
+'use strict'
 var MarsFlight = function (outbounddate, speed) {
     this.speed = speed || 1; // default speed is 1
     this.outbounddate = outbounddate || 'February 19, 2017'; // the departure date
