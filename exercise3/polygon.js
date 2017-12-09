@@ -3,3 +3,9 @@
  * 1. A constructor that takes an array of integer side lengths.
  * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
  */
+
+Polygon = function (sides) {
+    this.perimeter = function () {
+        return (sides != null && sides.length > 2) ? sides.reduce((prev, cur) => prev + cur) : 0;
+    }
+}
