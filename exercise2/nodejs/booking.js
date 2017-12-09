@@ -1,3 +1,4 @@
+'use strict'
 const events = require('events');
 
 let em = new events.EventEmitter();
@@ -9,7 +10,7 @@ function performBooking(newBooking) {
 
 // TODO: Attach an event handler (callback)
 // that listens for 'booking' events.
-
+em.on("booking", performBooking);
 
 // standard input and output streams also
 // use events
@@ -24,6 +25,7 @@ process.stdin.on('readable', () => {
       process.exit(0);
     } else {
       // TODO: emit a new event
+      em.emit("booking", tInput);
     }
   }
 });
