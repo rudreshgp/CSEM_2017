@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   node-app:
     build: app
@@ -15,12 +15,12 @@ services:
       - PG_PORT=5432
       - PG_USER=postgres
       - PG_DATABASE=app
-    deploy:
-      replicas: 2
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: 100M
+    # deploy:
+    #   replicas: 2
+    #   resources:
+    #     limits:
+    #       cpus: "0.1"
+    #       memory: 100M
 
   db:
     build: db

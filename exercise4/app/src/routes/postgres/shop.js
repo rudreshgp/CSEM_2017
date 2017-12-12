@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const DbContext = require("../../models/progress/dbContext");
+const DbContext = require("../../models/postgres/dbContext");
 
 const index = (req, res, next) => {
     // show all owners
@@ -8,9 +8,7 @@ const index = (req, res, next) => {
       res.status(200).send({
         "data": data
       }).catch((error)=>{
-        console.log(error);
         res.status(400).send(error);
-        // res.status(error.status)
     });      
     });
   };
@@ -20,9 +18,7 @@ const index = (req, res, next) => {
     DbContext.Shop.create(req.body).then((data) => {
       res.status(200).send(data);
     }).catch((error)=>{
-        console.log(error);
         res.status(400).send(error);
-        // res.status(error.status)
     });
   };
 
@@ -31,9 +27,7 @@ const index = (req, res, next) => {
     DbContext.Shop.findById(req.params['id']).then((data) => {
       res.status(200).send(data);
     }).catch((error)=>{
-        console.log(error);
         res.status(400).send(error);
-        // res.status(error.status)
     });
   };
 
@@ -46,9 +40,7 @@ const index = (req, res, next) => {
     }).then((data) => {
       res.status(200).send(data);
     }).catch((error)=>{
-        console.log(error);
         res.status(400).send(error);
-        // res.status(error.status)
     });
   };
   

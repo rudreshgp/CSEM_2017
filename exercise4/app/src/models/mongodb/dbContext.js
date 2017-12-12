@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
+
 const ownerSchema = require("./owner");
-let Owner = mongoose.model("Owner",ownerSchema,"owners");
+let Owner = global.db.model("Owner",ownerSchema,"owners");
 
 
 const productSchema = require("./product");
-let Product = mongoose.model("Product",productSchema,"products");
+let Product = global.db.model("Product",productSchema,"products");
 
 
 const shopSchema = require("./shop");
-let Shop = mongoose.model("Shop",shopSchema,"shops");
+let Shop = global.db.model("Shop",shopSchema,"shops");
 
 module.exports = {
     Owner:Owner,

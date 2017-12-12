@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
-// import { Schema } from 'mongoose';
-const Schema = mongoose.Schema;
-var productSchema = new Schema({
-    _id : Number,
-    // shop_id : {
-    //     type:Number,
-    //     required:true
-    // },
-    shopForProduct:[{
-        type:Schema.Types.ObjectId,
-        ref:'Shop'
-    }],
+var productSchema = new mongoose.Schema({
+    shop_id : {
+        type:mongoose.Schema.Types.ObjectId,
+        ref : "Shop",
+        required:true
+    },
     name : {
         type:String,
         required:true

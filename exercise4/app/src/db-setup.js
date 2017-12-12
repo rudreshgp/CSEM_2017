@@ -38,6 +38,8 @@ module.exports = (dbType) => {
 
         // MongoDB connection
         const MONGO_URL = 'mongodb://' + MONGO_HOST + ':' + MONGO_PORT + '/dev';
+
+        mongoose.Promise = require('bluebird');
         global.db = mongoose.createConnection(MONGO_URL);
     } else {
         console.error(`Database ${dbType} is unknown. Please select either postgres or mongodb.`);

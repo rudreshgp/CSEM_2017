@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const DbContext = require("../../models/progress/dbContext");
+const DbContext = require("../../models/postgres/dbContext");
 
 const index = (req, res, next) => {
     // show all owners
-    DbContext.Owner.findAll().then((data) => {    
+    DbContext.Product.findAll().then((data) => {    
       res.status(200).send({
         "data": data
       });      
@@ -15,9 +15,9 @@ const index = (req, res, next) => {
     });
   };
   
-  const createOwner = (req, res, next) => {
+  const createProduct = (req, res, next) => {
     // Create owner
-    DbContext.Owner.create(req.body).then((data) => {
+    DbContext.Product.create(req.body).then((data) => {
       res.status(200).send(data);
     }).catch((error)=>{
         console.log(error);
@@ -26,9 +26,9 @@ const index = (req, res, next) => {
     });
   };
 
-  const getOwner = (req, res, next) => {
+  const getProduct = (req, res, next) => {
     // get owner
-    DbContext.Owner.findById(req.params['id']).then((data) => {
+    DbContext.Product.findById(req.params['id']).then((data) => {
       res.status(200).send(data);
     }).catch((error)=>{
         console.log(error);
@@ -39,8 +39,8 @@ const index = (req, res, next) => {
   
   // Routes
   router.get('/', index);
-  router.post('/', createOwner);
-  router.get('/:id', getOwner);
+  router.post('/', createProduct);
+  router.get('/:id', getProduct);
   
   module.exports = router;
   

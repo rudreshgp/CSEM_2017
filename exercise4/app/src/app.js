@@ -24,9 +24,9 @@ app.use(bodyParser.json()); // for parsing application/json
 
 // Import routes
 // const index = require('./routes/index');
-const owner = require('./routes/progress/owner');
-const shop = require('./routes/progress/shop');
-const product = require('./routes/progress/product');
+const owner = require('./routes/'+global.dbType+'/owner');
+const shop = require('./routes/'+global.dbType+'/shop');
+const product = require('./routes/'+global.dbType+'/product');
 
 // Set up express routes
 app.use('/owner', owner);
