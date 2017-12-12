@@ -23,15 +23,15 @@ dbSetup(global.dbType);
 app.use(bodyParser.json()); // for parsing application/json
 
 // Import routes
-//const index = require('./routes/index');
-//const owner = require('./routes/owner');
-//const shop = require('./routes/shop');
-//const product = require('./routes/product');
+// const index = require('./routes/index');
+const owner = require('./routes/progress/owner');
+const shop = require('./routes/progress/shop');
+const product = require('./routes/progress/product');
 
 // Set up express routes
-//app.use('/owner', owner);
-//app.use('/shop', shop);
-//app.use('/product', product);
+app.use('/owner', owner);
+app.use('/shop', shop);
+app.use('/product', product);
 
 app.listen(LOCAL_APP_PORT, () => {
   console.log('App started ...');
