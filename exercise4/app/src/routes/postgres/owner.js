@@ -31,11 +31,23 @@ const index = (req, res, next) => {
         res.status(400).send(error);
     });
   };
-  
+  // const updateOwner = (req, res, next) => {
+  //   // get owner
+  //   // console.log(req.body);
+  //   DbContext.Owner.findOneAndUpdate({_id : req.body['_id']},{name:req.body['name']},{upsert:true},(err,data) => {
+  //     if(err){
+  //       res.status(400).send(err);
+  //     }
+  //     else{
+  //       res.status(200).send(req.body);
+  //     }
+  //   });
+  // };
   // Routes
   router.get('/', index);
   router.post('/', createOwner);
   router.get('/:id', getOwner);
+  // router.update('/', updateOwner);
   
   module.exports = router;
   

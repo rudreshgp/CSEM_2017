@@ -3,7 +3,7 @@ const router = express.Router();
 const DbContext = require("../../models/mongodb/dbContext");
 
 const index = (req, res, next) => {
-    // show all owners
+    // show all shops
     DbContext.Shop.find().exec((err,data) => {    
       if(err){
         res.status(400).send(err);
@@ -15,7 +15,7 @@ const index = (req, res, next) => {
   };
   
   const createShop = (req, res, next) => {
-    // Create owner
+    // Create shop
     let shop = new DbContext.Shop(req.body);
     shop.save((err,data) => {
       if(err){
@@ -28,11 +28,11 @@ const index = (req, res, next) => {
   };
 
   const getShop = (req, res, next) => {
-    // get owner
-    DbContext.Shop.find(
+    // get shop
+    DbContext.Shop.findOne(
         {
             _id:req.params['id']
-        },(err,data) => {
+          },(err,data) => {
         if(err){
             res.status(400).send(err);
         }
@@ -43,7 +43,7 @@ const index = (req, res, next) => {
   };
 
   const getProductsById = (req, res, next) => {
-    // get owner
+    // get products
     DbContext.Product.find(
         {
             shop_id:req.params['id']

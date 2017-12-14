@@ -28,9 +28,9 @@ const index = (req, res, next) => {
 
   const getOwner = (req, res, next) => {
     // get owner
-    DbContext.Owner.find({
+    DbContext.Owner.findOne({
       _id : req.params['id']
-    }).exec((err,data) => {
+    },(err,data) => {
       if(err){
         res.status(400).send(err);
       }
@@ -40,10 +40,23 @@ const index = (req, res, next) => {
     });
   };
   
+  const updateOwner = (req, res, next) => {
+    // get owner
+    // console.log(req.body);
+    DbContext.Owner.findOneAndUpdate({_id : req.body['_id']},{name:req.body['name']},{upsert:true},(err,data) => {
+      if(err){
+        res.status(400).send(err);
+      }
+      else{
+        res.status(200).send(req.body);
+      }
+    });
+  };
   // Routes
   router.get('/', index);
   router.post('/', createOwner);
   router.get('/:id', getOwner);
+  router.put('/', updateOwner);
   
   module.exports = router;
  

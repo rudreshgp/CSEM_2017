@@ -6,7 +6,7 @@ const DbContext = require("../../models/mongodb/dbContext");
 
 const index = (req, res, next) => {
     // show all owners
-    DbContext.Product.find((error,data) => {
+    DbContext.Product.find(req.body,(error,data) => {
         if(error){
           res.status(400).send(error);
         }
@@ -31,7 +31,7 @@ const index = (req, res, next) => {
 
   const getProduct = (req, res, next) => {
     // get product
-    DbContext.Product.find(
+    DbContext.Product.findOne(
         {
             _id:req.params['id']
         },(error,data) => {
