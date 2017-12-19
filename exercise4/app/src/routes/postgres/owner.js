@@ -5,9 +5,7 @@ const DbContext = require("../../models/postgres/dbContext");
 const index = (req, res, next) => {
     // show all owners
     DbContext.Owner.findAll().then((data) => {    
-      res.status(200).send({
-        "data": data
-      });      
+      res.status(200).send(data);      
     }).catch((error)=>{
         res.status(400).send(error);
     });
@@ -31,23 +29,26 @@ const index = (req, res, next) => {
         res.status(400).send(error);
     });
   };
-  // const updateOwner = (req, res, next) => {
-  //   // get owner
-  //   // console.log(req.body);
-  //   DbContext.Owner.findOneAndUpdate({_id : req.body['_id']},{name:req.body['name']},{upsert:true},(err,data) => {
-  //     if(err){
-  //       res.status(400).send(err);
-  //     }
-  //     else{
-  //       res.status(200).send(req.body);
-  //     }
-  //   });
-  // };
+  const updateOwner = (req, res, next) => {
+    // get owner
+    // console.log(req.body);
+    DbContext.Owner.findById(req.body['id']).then((owner)=> {
+      owner.updateAttributes({
+        name:req.body['name']
+      }).then((data)=>{
+        res.status(200).send(data);
+      }).catch((error)=>{
+        res.status(400).send(error);  
+      });
+    }).catch((error)=>{
+      res.status(400).send(error);
+    });
+  };
   // Routes
   router.get('/', index);
   router.post('/', createOwner);
   router.get('/:id', getOwner);
-  // router.update('/', updateOwner);
+  router.put('/', updateOwner);
   
   module.exports = router;
   

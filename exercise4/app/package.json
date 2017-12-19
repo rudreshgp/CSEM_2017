@@ -13,12 +13,12 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "continuation-local-storage": "^3.2.0",
-    "cors": "^2.8.1",
+    "cors": "^2.8.4",
     "express": "^4.13.3",
-    "pg": "^6.1.5",
-    "sequelize": "^3.30.4",
     "mongodb": "^2.2.11",
-    "mongoose": "^4.6.8"
+    "mongoose": "^4.6.8",
+    "pg": "^6.1.5",
+    "sequelize": "^3.30.4"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

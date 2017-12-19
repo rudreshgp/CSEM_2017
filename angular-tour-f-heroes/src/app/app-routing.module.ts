@@ -4,13 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent }      from './heroes/heroes.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { HeroDetailComponent} from './hero-detail/hero-detail.component';
+import { OwnerDetailComponent} from './owner-detail/owner-detail.component';
 import { OwnersComponent} from './owners/owners.component';
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   {path:'dashboard',component:DashboardComponent},
   {path:'',redirectTo:'dashboard',pathMatch:'full'},
-  {path:'detail/:id',component:HeroDetailComponent}
-  // {path:'owners',component:OwnersComponent}
+  {path:'detail/:id',component:HeroDetailComponent},
+  {path:'owner',component:OwnersComponent},
+  {path:'owner/:id',component:OwnerDetailComponent}
 ];
 @NgModule({
   imports: [

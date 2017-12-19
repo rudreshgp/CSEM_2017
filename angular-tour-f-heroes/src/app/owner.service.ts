@@ -11,14 +11,87 @@ const httpOptions = {
 };
 @Injectable()
 export class OwnerService {
-  private ownerUrl ="http://localhost:4000/owner";
+  private ownerUrl ="http://localhost:4000/owner/";
   
   constructor(private http:HttpClient, private messageService:MessageService) { }
-  getOwners():Observable<Owner[]>{
+  // getOwners():Observable<Owner[]>{
+  //   return this.http.get<Owner[]>(this.ownerUrl,httpOptions)
+  //   .pipe(
+  //     tap(owners => this.log(`fetched owners`)),
+  //     catchError(this.handleError('getOwners', []))
+  //   );
+  // }
+
+  /** GET owners from the server */
+  getOwners (): Observable<Owner[]> {
     return this.http.get<Owner[]>(this.ownerUrl)
-    .pipe(
-      tap(heroes => this.log(`fetched owners`)),
-      catchError(this.handleError('getOwners', []))
+      .pipe(
+        tap(owners => this.log(`fetched owners`)),
+        catchError(this.handleError('getOwners', []))
+      );
+  }
+
+  /** GET owner by id. Return `undefined` when id not found */
+  getOwnerNo404<Data>(id: number): Observable<Owner> {
+    const url = `${this.ownerUrl}/?id=${id}`;
+    return this.http.get<Owner[]>(url)
+      .pipe(
+        map(owners => owners[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} owner id=${id}`);
+        }),
+        catchError(this.handleError<Owner>(`getOwner id=${id}`))
+      );
+  }
+
+  /** GET owner by id. Will 404 if id not found */
+  getOwner(id: number): Observable<Owner> {
+    const url = `${this.ownerUrl}/${id}`;
+    return this.http.get<Owner>(url).pipe(
+      tap(_ => this.log(`fetched owner id=${id}`)),
+      catchError(this.handleError<Owner>(`getOwner id=${id}`))
+    );
+  }
+
+  // /* GET owners whose name contains search term */
+  // searchOwner(term: string): Observable<Owner[]> {
+  //   if (!term.trim()) {
+  //     // if not search term, return empty owner array.
+  //     return of([]);
+  //   }
+  //   return this.http.get<Owner[]>(`api/owners/?name=${term}`).pipe(
+  //     tap(_ => this.log(`found owners matching "${term}"`)),
+  //     catchError(this.handleError<Owner[]>('searchOwners', []))
+  //   );
+  // }
+
+  //////// Save methods //////////
+
+  /** POST: add a new owner to the server */
+  addOwner (owner: Owner): Observable<Owner> {
+    return this.http.post<Owner>(this.ownerUrl, owner, httpOptions).pipe(
+      tap((owner: Owner) => this.log(`added owner w/ id=${owner.id}`)),
+      catchError(this.handleError<Owner>('addOwner'))
+    );
+  }
+
+  // /** DELETE: delete the owner from the server */
+  // deleteOwner (owner: Owner | number): Observable<Owner> {
+  //   const id = typeof owner === 'number' ? owner : owner.id;
+  //   const url = `${this.ownerUrl}/${id}`;
+
+  //   return this.http.delete<Owner>(url, httpOptions).pipe(
+  //     tap(_ => this.log(`deleted owner id=${id}`)),
+  //     catchError(this.handleError<Owner>('deleteOwner'))
+  //   );
+  // }
+
+  /** PUT: update the owner on the server */
+  updateOwner (owner: Owner): Observable<any> {
+    return this.http.put(this.ownerUrl, owner, httpOptions).pipe(
+      tap(_ => this.log(`updated owner id=${owner.id}`)),
+      catchError(this.handleError<any>('updateOwner'))
     );
   }
   /**
@@ -41,8 +114,8 @@ export class OwnerService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  /** Log a OwnerService message with the MessageService */
   private log(message: string) {
-    this.messageService.add('HeroService: ' + message);
+    this.messageService.add('OwnerService: ' + message);
   }
 }

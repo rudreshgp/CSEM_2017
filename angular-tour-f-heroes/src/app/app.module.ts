@@ -3,8 +3,8 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -18,6 +18,7 @@ import { MessageService }       from './message.service';
 import { MessagesComponent }    from './messages/messages.component';
 import { OwnerService } from './owner.service';
 import { OwnersComponent } from './owners/owners.component';
+import { OwnerDetailComponent } from './owner-detail/owner-detail.component';
 
 @NgModule({
   imports: [
@@ -29,9 +30,9 @@ import { OwnersComponent } from './owners/owners.component';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // )
   ],
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { OwnersComponent } from './owners/owners.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    OwnersComponent
+    OwnersComponent,
+    OwnerDetailComponent
   ],
   providers: [ HeroService, MessageService, OwnerService ],
   bootstrap: [ AppComponent ]

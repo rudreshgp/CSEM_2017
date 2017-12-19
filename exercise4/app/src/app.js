@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const dbSetup = require('./db-setup');
-
+const cors = require('cors');
 // Application config
 const LOCAL_APP_PORT = 8080;
 const PUBLIC_APP_PORT = process.env.PUBLIC_APP_PORT || LOCAL_APP_PORT;
@@ -21,7 +21,8 @@ dbSetup(global.dbType);
 
 // Express middleware
 app.use(bodyParser.json()); // for parsing application/json
-
+app.use(cors());
+app.options('*', cors());
 // Import routes
 // const index = require('./routes/index');
 const owner = require('./routes/'+global.dbType+'/owner');
