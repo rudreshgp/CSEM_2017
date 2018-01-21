@@ -1,11 +1,39 @@
-Question 1 - AWS EC2
+﻿Question 1 - AWS EC2
 
 Answer:
+Port Scanning. Unauthorized port scans by Amazon EC2 customers are a violation of the AWS Acceptable Use Policy. Violations of the AWS Acceptable Use Policy are taken seriously, and every reported violation is investigated.
 
+Port scans of Amazon EC2 instances are generally ineffective because, by default, all inbound ports on Amazon EC2 instances are closed and are only opened by the customer. Customers strict management of security groups can further mitigate the threat of port scans. If the Customer configure the security group to allow traffic from any source to a specific port, then that specific port will be vulnerable to a port scan. In these cases, the customer must use appropriate security measures to protect listening services that may be essential to their application from being discovered by an unauthorized port scan. For example, a web server must clearly have port 80 (HTTP) open to the world, and the administrator of this server is responsible for the security of the HTTP server software, such as Apache. You may request permission to conduct vulnerability scans as required to meet your specific compliance requirements.
+
+These scans must be limited to customer own instances and must not violate the AWS Acceptable Use Policy.
 
 Question 2 - AWS EBS
 
 Answer:
+AWS Storage Gateway Security The AWS Storage Gateway service connects your on-premises software appliance with cloud-based storage to provide seamless and secure integration between your IT environment and AWS’ storage infrastructure. The service enables you to securely upload data to AWS’ scalable, reliable, and secure Amazon S3 storage service for cost-effective backup and rapid disaster recovery.
+AWS Storage Gateway transparently backs up data off-site to Amazon S3 in the form of
+Amazon EBS snapshots. Amazon S3 redundantly stores these snapshots on multiple devices
+across multiple facilities, detecting and repairing any lost redundancy. The Amazon EBS
+snapshot provides a point-in-time backup that can be restored on-premises or used to
+instantiate new Amazon EBS volumes. Data is stored within a single region that you specify.
+AWS Storage Gateway offers three options:
+
+matterGateway-Stored Volumes (where the cloud is backup). In this option, your volume data is
+stored locally and then pushed to Amazon S3, where it is stored in redundant, encrypted
+form, and made available in the form of Elastic Block Storage (EBS) snapshots. When
+you use this model, the on-premises storage is primary, delivering low-latency access to
+your entire dataset, and the cloud storage is the backup.
+Gateway-Cached Volumes (where the cloud is primary). In this option, your volume data
+is stored encrypted in Amazon S3, visible within your enterprise's network via an iSCSI
+interface. Recently accessed data is cached on- premises for low-latency local access.
+When you use this model, the cloud storage is primary, but you get low- latency access to
+your active working set in the cached volumes on premises.
+Gateway-Virtual Tape Library (VTL). In this option, you can configure a Gateway-VTL
+with up to 10 virtual tape drives per gateway, 1 media changer and up to 1500 virtual
+tape cartridges. Each virtual tape drive responds to the SCSI command set, so your
+existing on-premises backup applications (either disk-to-tape or disk-to-disk-to- tape)
+will work without modification.
+which option you choose, data is asynchronously transferred from your on-premises
 
 
 Question 3 - AWS S3
