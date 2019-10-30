@@ -18,7 +18,7 @@
     "mongodb": "^2.2.11",
     "mongoose": "^5.7.7",
     "pg": "^6.1.5",
-    "sequelize": "^3.30.4"
+    "sequelize": "^5.15.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
