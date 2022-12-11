@@ -14,7 +14,7 @@
     "body-parser": "^1.15.2",
     "continuation-local-storage": "^3.2.0",
     "cors": "^2.8.4",
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "mongodb": "^2.2.11",
     "mongoose": "^5.7.7",
     "pg": "^6.1.5",
